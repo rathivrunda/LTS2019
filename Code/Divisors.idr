@@ -106,3 +106,12 @@ posDivAndDivByImpliesEqual x y z x1 =lteAndGteImpliesEqualZ dLtec cLted where
 gcdIsUnique: (GCDZ a b d)-> (GCDZ a b c)->(c=d)
 gcdIsUnique {a}{b}{c}{d}(dPos, dCommonFactor,fd) (cPos, cCommonFactor,fc) =
   posDivAndDivByImpliesEqual (fc dCommonFactor) (fd cCommonFactor) cPos dPos
+
+IsCommonFactorZSwitchSign :(IsCommonFactorZ a b c)->(IsCommonFactorZ (-a) b c)
+IsCommonFactorZSwitchSign {a}{b}{c}(cDiva, cDivb)=((dDividesNegative cDiva), cDivb)
+{-
+\\\Cant fix the error in this. if someone can, its a useful function
+GCDIsSignIndependent :(GCDZ a b d)->(GCDZ (-a) b d )
+GCDIsSignIndependent (dPos, dCommonfactor, f) =
+                  (dPos, (IsCommonFactorZSwitchSign dCommonfactor), ((IsCommonFactorZSwitchSign cCommonfactor)-> cDivd) )
+-}
